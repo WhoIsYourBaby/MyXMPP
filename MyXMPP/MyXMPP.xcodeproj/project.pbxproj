@@ -14,6 +14,7 @@
 		02610B171BFE01E1001F83CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02610B161BFE01E1001F83CD /* Assets.xcassets */; };
 		02610B1A1BFE01E1001F83CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02610B181BFE01E1001F83CD /* LaunchScreen.storyboard */; };
 		02610B251BFE01E1001F83CD /* MyXMPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02610B241BFE01E1001F83CD /* MyXMPPUITests.m */; };
+		02D97CED1C0AB2F4002A9838 /* XMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */; };
 		BEA238193A13C92AE378BC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A693FB456217DAD727250BE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,9 @@
 		02610B201BFE01E1001F83CD /* MyXMPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyXMPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02610B241BFE01E1001F83CD /* MyXMPPUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyXMPPUITests.m; sourceTree = "<group>"; };
 		02610B261BFE01E1001F83CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02D97CEB1C0AB2F4002A9838 /* XMPPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPManager.h; sourceTree = "<group>"; };
+		02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPManager.m; sourceTree = "<group>"; };
+		02D97CEE1C0AB7CB002A9838 /* def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = def.h; sourceTree = "<group>"; };
 		225E471F19110E0542D11DF7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4A693FB456217DAD727250BE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE19F4C2BF0FD5467DED845 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +96,9 @@
 				02610B0E1BFE01E1001F83CD /* AppDelegate.m */,
 				02610B101BFE01E1001F83CD /* ViewController.h */,
 				02610B111BFE01E1001F83CD /* ViewController.m */,
+				02D97CEB1C0AB2F4002A9838 /* XMPPManager.h */,
+				02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */,
+				02D97CEE1C0AB7CB002A9838 /* def.h */,
 				02610B131BFE01E1001F83CD /* Main.storyboard */,
 				02610B161BFE01E1001F83CD /* Assets.xcassets */,
 				02610B181BFE01E1001F83CD /* LaunchScreen.storyboard */,
@@ -286,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02D97CED1C0AB2F4002A9838 /* XMPPManager.m in Sources */,
 				02610B121BFE01E1001F83CD /* ViewController.m in Sources */,
 				02610B0F1BFE01E1001F83CD /* AppDelegate.m in Sources */,
 				02610B0C1BFE01E1001F83CD /* main.m in Sources */,
