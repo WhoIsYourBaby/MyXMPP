@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <XMPPFramework/XMPPFramework.h>
+#import "XMPPManager.h"
 
 @interface ViewController ()
 
@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [[XMPPManager shareInterface] connect];
 }
 
 - (void)didReceiveMemoryWarning {

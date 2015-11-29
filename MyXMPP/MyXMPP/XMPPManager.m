@@ -33,6 +33,7 @@
         _xmppStream = [[XMPPStream alloc] init];
         [_xmppStream setHostName:kHostName];
         [_xmppStream setHostPort:5222];
+        [_xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
     }
     return self;
 }
@@ -46,7 +47,7 @@
     [self.xmppStream setMyJID:[XMPPJID jidWithUser:@"unknow" domain:kHostName resource:nil]];
     NSError *err = nil;
     BOOL result = [self.xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&err];
-    NSAssert(result == NO, [err description]);
+    NSAssert(result, [err description]);
 }
 
 
