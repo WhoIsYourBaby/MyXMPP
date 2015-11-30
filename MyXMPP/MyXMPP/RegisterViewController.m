@@ -6,17 +6,17 @@
 //  Copyright © 2015年 halloworld. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RegisterViewController.h"
 #import "XMPPManager.h"
 
-@interface ViewController () <XMPPStreamDelegate>
+@interface RegisterViewController () <XMPPStreamDelegate>
 
 @property (nonatomic, assign) IBOutlet UITextField *userField;
 @property (nonatomic, assign) IBOutlet UITextField *passwordField;
 
 @end
 
-@implementation ViewController
+@implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

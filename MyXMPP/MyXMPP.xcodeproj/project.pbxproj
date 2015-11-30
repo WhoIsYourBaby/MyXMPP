@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		025EF64B1C0C92B9001BEB4E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025EF64A1C0C92B9001BEB4E /* LoginViewController.m */; };
 		02610B0C1BFE01E1001F83CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02610B0B1BFE01E1001F83CD /* main.m */; };
 		02610B0F1BFE01E1001F83CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02610B0E1BFE01E1001F83CD /* AppDelegate.m */; };
-		02610B121BFE01E1001F83CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02610B111BFE01E1001F83CD /* ViewController.m */; };
+		02610B121BFE01E1001F83CD /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02610B111BFE01E1001F83CD /* RegisterViewController.m */; };
 		02610B151BFE01E1001F83CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02610B131BFE01E1001F83CD /* Main.storyboard */; };
 		02610B171BFE01E1001F83CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02610B161BFE01E1001F83CD /* Assets.xcassets */; };
 		02610B1A1BFE01E1001F83CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02610B181BFE01E1001F83CD /* LaunchScreen.storyboard */; };
@@ -29,12 +30,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		025EF6491C0C92B9001BEB4E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		025EF64A1C0C92B9001BEB4E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		02610B071BFE01E1001F83CD /* MyXMPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyXMPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02610B0B1BFE01E1001F83CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02610B0D1BFE01E1001F83CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		02610B0E1BFE01E1001F83CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		02610B101BFE01E1001F83CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		02610B111BFE01E1001F83CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		02610B101BFE01E1001F83CD /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		02610B111BFE01E1001F83CD /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		02610B141BFE01E1001F83CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02610B161BFE01E1001F83CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02610B191BFE01E1001F83CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,8 +97,10 @@
 			children = (
 				02610B0D1BFE01E1001F83CD /* AppDelegate.h */,
 				02610B0E1BFE01E1001F83CD /* AppDelegate.m */,
-				02610B101BFE01E1001F83CD /* ViewController.h */,
-				02610B111BFE01E1001F83CD /* ViewController.m */,
+				02610B101BFE01E1001F83CD /* RegisterViewController.h */,
+				02610B111BFE01E1001F83CD /* RegisterViewController.m */,
+				025EF6491C0C92B9001BEB4E /* LoginViewController.h */,
+				025EF64A1C0C92B9001BEB4E /* LoginViewController.m */,
 				02D97CEB1C0AB2F4002A9838 /* XMPPManager.h */,
 				02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */,
 				02D97CEE1C0AB7CB002A9838 /* def.h */,
@@ -294,9 +299,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D97CED1C0AB2F4002A9838 /* XMPPManager.m in Sources */,
-				02610B121BFE01E1001F83CD /* ViewController.m in Sources */,
+				02610B121BFE01E1001F83CD /* RegisterViewController.m in Sources */,
 				02610B0F1BFE01E1001F83CD /* AppDelegate.m in Sources */,
 				02610B0C1BFE01E1001F83CD /* main.m in Sources */,
+				025EF64B1C0C92B9001BEB4E /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
