@@ -22,7 +22,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [[XMPPManager shareInterface] addStreamDelegate:self];
-    [[XMPPManager shareInterface] connect];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +37,20 @@
 #pragma mark - XMPPStream Delegate
 
 - (void)xmppStreamDidConnect:(XMPPStream *)sender {
+    /*
+     <iq type='get' id='reg1' to='shakespeare.lit'>
+     <query xmlns='jabber:iq:register'/>
+     </iq>
+     */
+    DDXMLElement *iq = [DDXMLElement elementWithName:@"iq"];
+    [iq addAttributeWithName:@"type" stringValue:@"get"];
+    [iq addAttributeWithName:@"id" stringValue:@"reg1"];
+    [iq addAttributeWithName:@"to" stringValue:kHostName];
+    DDXMLElement *query = [DDXMLElement elementWithName:@"query" xmlns:@"jabber:iq:register"];
+    [iq addChild:query];
+    [sender sendElement:iq];
+    
+    return ;
     NSString *username = self.userField.text;
     NSString *password = self.passwordField.text;
     [sender setMyJID:[XMPPJID jidWithUser:username domain:kHostName resource:nil]];
@@ -55,6 +68,12 @@
 
 - (void)xmppStream:(XMPPStream *)sender didNotRegister:(NSXMLElement *)error {
     NSLog(@"%s -> %@", __FUNCTION__, [error prettyXMLString]);
+}
+
+
+- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq {
+    NSLog(@"%s -> %@", __FUNCTION__, [iq prettyXMLString]);
+    return YES;
 }
 
 @end
