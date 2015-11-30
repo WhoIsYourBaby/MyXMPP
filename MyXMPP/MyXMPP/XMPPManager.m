@@ -7,6 +7,7 @@
 //
 
 #import "XMPPManager.h"
+#import <DDTTYLogger.h>
 #import "def.h"
 
 @interface XMPPManager () <XMPPStreamDelegate>
@@ -30,6 +31,7 @@
 {
     self = [super init];
     if (self) {
+        [DDLog addLogger:[DDTTYLogger sharedInstance]];
         _xmppStream = [[XMPPStream alloc] init];
         [_xmppStream setHostName:kHostName];
         [_xmppStream setHostPort:5222];
@@ -61,7 +63,7 @@
  * that this is a task that needs to continue running in the background.
  **/
 - (void)xmppStreamWillConnect:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -72,7 +74,7 @@
  * please use XMPPStream's enableBackgroundingOnSocket property as opposed to doing it directly on the socket here.
  **/
 - (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -80,7 +82,7 @@
  * and the opening XML stream negotiation has started.
  **/
 - (void)xmppStreamDidStartNegotiation:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -113,7 +115,7 @@
  * Then implement the xmppStream:didReceiveTrust:completionHandler: delegate method to perform custom validation.
  **/
 - (void)xmppStream:(XMPPStream *)sender willSecureWithSettings:(NSMutableDictionary *)settings {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -154,7 +156,7 @@
  **/
 - (void)xmppStream:(XMPPStream *)sender didReceiveTrust:(SecTrustRef)trust
  completionHandler:(void (^)(BOOL shouldTrustPeer))completionHandler {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -163,7 +165,7 @@
  * or if the secureConnection: method was manually invoked.
  **/
 - (void)xmppStreamDidSecure:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -173,7 +175,7 @@
  * At this point it's safe to begin communication with the server.
  **/
 - (void)xmppStreamDidConnect:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -181,14 +183,14 @@
  * If registration fails for some reason, the xmppStream:didNotRegister: method will be called instead.
  **/
 - (void)xmppStreamDidRegister:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
  * This method is called if registration fails.
  **/
 - (void)xmppStream:(XMPPStream *)sender didNotRegister:(NSXMLElement *)error {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -196,14 +198,14 @@
  * If authentication fails for some reason, the xmppStream:didNotAuthenticate: method will be called instead.
  **/
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
  * This method is called if authentication fails.
  **/
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 
@@ -229,15 +231,15 @@
  * @see xmppStream:didReceivePresence:
  **/
 - (XMPPIQ *)xmppStream:(XMPPStream *)sender willReceiveIQ:(XMPPIQ *)iq {
-    NSLog(@"%s", __FUNCTION__);
+    
     return iq;
 }
 - (XMPPMessage *)xmppStream:(XMPPStream *)sender willReceiveMessage:(XMPPMessage *)message {
-    NSLog(@"%s", __FUNCTION__);
+    
     return message;
 }
 - (XMPPPresence *)xmppStream:(XMPPStream *)sender willReceivePresence:(XMPPPresence *)presence {
-    NSLog(@"%s", __FUNCTION__);
+    
     return presence;
 }
 
@@ -248,7 +250,7 @@
  * even if it was filtered for some reason.
  **/
 - (void)xmppStreamDidFilterStanza:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -264,14 +266,14 @@
  * you should copy the element first, and then modify and use the copy.
  **/
 - (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq {
-    NSLog(@"%s", __FUNCTION__);
+    
     return YES;
 }
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 - (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -284,7 +286,7 @@
  * via the other didReceive...: methods.
  **/
 - (void)xmppStream:(XMPPStream *)sender didReceiveError:(NSXMLElement *)error {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -309,15 +311,15 @@
  * @see xmppStream:didSendPresence:
  **/
 - (XMPPIQ *)xmppStream:(XMPPStream *)sender willSendIQ:(XMPPIQ *)iq {
-    NSLog(@"%s", __FUNCTION__);
+    
     return iq;
 }
 - (XMPPMessage *)xmppStream:(XMPPStream *)sender willSendMessage:(XMPPMessage *)message {
-    NSLog(@"%s", __FUNCTION__);
+    
     return message;
 }
 - (XMPPPresence *)xmppStream:(XMPPStream *)sender willSendPresence:(XMPPPresence *)presence {
-    NSLog(@"%s", __FUNCTION__);
+    
     return presence;
 }
 
@@ -327,13 +329,13 @@
  * or for general logging purposes. (E.g. a central history logging mechanism).
  **/
 - (void)xmppStream:(XMPPStream *)sender didSendIQ:(XMPPIQ *)iq {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 - (void)xmppStream:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 - (void)xmppStream:(XMPPStream *)sender didSendPresence:(XMPPPresence *)presence {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -341,21 +343,15 @@
  * This occurs when the stream gets disconnected before the element can get sent out.
  **/
 - (void)xmppStream:(XMPPStream *)sender didFailToSendIQ:(XMPPIQ *)iq error:(NSError *)error {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 - (void)xmppStream:(XMPPStream *)sender didFailToSendMessage:(XMPPMessage *)message error:(NSError *)error {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 - (void)xmppStream:(XMPPStream *)sender didFailToSendPresence:(XMPPPresence *)presence error:(NSError *)error {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
-/**
- * This method is called if the XMPP Stream's jid changes.
- **/
-- (void)xmppStreamDidChangeMyJID:(XMPPStream *)xmppStream {
-    NSLog(@"%s", __FUNCTION__);
-}
 
 /**
  * This method is called if the disconnect method is called.
@@ -370,7 +366,7 @@
  * @see xmppStreamDidSendClosingStreamStanza
  **/
 - (void)xmppStreamWasToldToDisconnect:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -384,14 +380,14 @@
  * but there are a few contexts in which the difference has various protocol implications.
  **/
 - (void)xmppStreamDidSendClosingStreamStanza:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
  * This method is called if the XMPP stream's connect times out.
  **/
 - (void)xmppStreamConnectDidTimeout:(XMPPStream *)sender {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -406,7 +402,7 @@
  * @see xmppStreamConnectDidTimeout:
  **/
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -416,7 +412,7 @@
  * Recall that the XEP specifies that <stream:features/> SHOULD be sent.
  **/
 - (void)xmppStream:(XMPPStream *)sender didReceiveP2PFeatures:(NSXMLElement *)streamFeatures {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -426,7 +422,7 @@
  * adding any specific featues the delegate might support.
  **/
 - (void)xmppStream:(XMPPStream *)sender willSendP2PFeatures:(NSXMLElement *)streamFeatures {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -437,10 +433,10 @@
  * than what is available with the autoAddDelegate:toModulesOfClass: method.
  **/
 - (void)xmppStream:(XMPPStream *)sender didRegisterModule:(id)module {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 - (void)xmppStream:(XMPPStream *)sender willUnregisterModule:(id)module {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 /**
@@ -457,10 +453,10 @@
  * @see registerCustomElementNames (in XMPPInternal.h)
  **/
 - (void)xmppStream:(XMPPStream *)sender didSendCustomElement:(NSXMLElement *)element {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 - (void)xmppStream:(XMPPStream *)sender didReceiveCustomElement:(NSXMLElement *)element {
-    NSLog(@"%s", __FUNCTION__);
+    
 }
 
 @end
