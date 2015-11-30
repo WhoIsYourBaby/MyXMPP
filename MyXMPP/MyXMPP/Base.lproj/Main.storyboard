@@ -88,6 +88,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wO-qs-o46">
                                 <rect key="frame" x="100" y="199" width="121" height="30"/>
                                 <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="btnLoginTap:" destination="pDR-vj-Jre" eventType="touchUpInside" id="2Pa-wa-g2w"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4d-qY-fEy">
                                 <rect key="frame" x="100" y="237" width="121" height="30"/>
@@ -100,6 +103,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="sCQ-6F-qBh"/>
+                    <connections>
+                        <outlet property="passwordField" destination="sar-vX-rK5" id="ehw-is-jFw"/>
+                        <outlet property="userField" destination="dpT-nB-c10" id="iec-r1-61f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W8n-Sl-pdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
