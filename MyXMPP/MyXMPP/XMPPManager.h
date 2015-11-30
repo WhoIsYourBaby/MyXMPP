@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <XMPPFramework.h>
+#import "def.h"
 
 @interface XMPPManager : NSObject
 
 + (instancetype)shareInterface;
 
 - (XMPPStream *)xmppStream;
+
+- (void)addStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
 
 - (void)connect;
 
