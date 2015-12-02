@@ -18,6 +18,8 @@
 
 - (void)addStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
 
+- (void)removeStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
+
 - (void)connect;
 
 @end

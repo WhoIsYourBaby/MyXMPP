@@ -49,6 +49,10 @@
     [self.xmppStream addDelegate:aDelegate delegateQueue:dispatch_get_main_queue()];
 }
 
+- (void)removeStreamDelegate:(id<XMPPStreamDelegate>)aDelegate {
+    [self.xmppStream removeDelegate:aDelegate];
+}
+
 - (void)connect {
     [self.xmppStream setMyJID:[XMPPJID jidWithUser:@"unknow" domain:kHostName resource:nil]];
     NSError *err = nil;

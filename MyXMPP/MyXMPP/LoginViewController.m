@@ -27,6 +27,10 @@
     [[XMPPManager shareInterface] connect];
 }
 
+- (void)dealloc {
+    [[XMPPManager shareInterface] removeStreamDelegate:self];
+}
+
 
 #pragma mark - XMPPStream Delegate
 

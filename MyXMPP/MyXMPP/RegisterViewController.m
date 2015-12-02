@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [[XMPPManager shareInterface] addStreamDelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,8 +29,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [[XMPPManager shareInterface] removeStreamDelegate:self];
+}
+
 
 - (IBAction)btnRegisterTap:(id)sender {
+    [[XMPPManager shareInterface] addStreamDelegate:self];
     [[XMPPManager shareInterface] connect];
 }
 
@@ -42,6 +47,7 @@
      <query xmlns='jabber:iq:register'/>
      </iq>
      */
+    /*  请求注册要求的字段
     DDXMLElement *iq = [DDXMLElement elementWithName:@"iq"];
     [iq addAttributeWithName:@"type" stringValue:@"get"];
     [iq addAttributeWithName:@"id" stringValue:@"reg1"];
@@ -49,8 +55,8 @@
     DDXMLElement *query = [DDXMLElement elementWithName:@"query" xmlns:@"jabber:iq:register"];
     [iq addChild:query];
     [sender sendElement:iq];
+     */
     
-    return ;
     NSString *username = self.userField.text;
     NSString *password = self.passwordField.text;
     [sender setMyJID:[XMPPJID jidWithUser:username domain:kHostName resource:nil]];
