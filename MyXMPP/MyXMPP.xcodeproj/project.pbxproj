@@ -15,6 +15,8 @@
 		02610B171BFE01E1001F83CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02610B161BFE01E1001F83CD /* Assets.xcassets */; };
 		02610B1A1BFE01E1001F83CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02610B181BFE01E1001F83CD /* LaunchScreen.storyboard */; };
 		02610B251BFE01E1001F83CD /* MyXMPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02610B241BFE01E1001F83CD /* MyXMPPUITests.m */; };
+		028815E01C15C2CA001DAA31 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028815DF1C15C2CA001DAA31 /* AddFriendViewController.m */; };
+		028815E31C15C883001DAA31 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028815E21C15C883001DAA31 /* FriendListViewController.m */; };
 		02D97CED1C0AB2F4002A9838 /* XMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */; };
 		BEA238193A13C92AE378BC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A693FB456217DAD727250BE /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,10 @@
 		02610B201BFE01E1001F83CD /* MyXMPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyXMPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02610B241BFE01E1001F83CD /* MyXMPPUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyXMPPUITests.m; sourceTree = "<group>"; };
 		02610B261BFE01E1001F83CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		028815DE1C15C2CA001DAA31 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
+		028815DF1C15C2CA001DAA31 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
+		028815E11C15C883001DAA31 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		028815E21C15C883001DAA31 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		02D97CEB1C0AB2F4002A9838 /* XMPPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPManager.h; sourceTree = "<group>"; };
 		02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPManager.m; sourceTree = "<group>"; };
 		02D97CEE1C0AB7CB002A9838 /* def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = def.h; sourceTree = "<group>"; };
@@ -103,6 +109,10 @@
 				025EF64A1C0C92B9001BEB4E /* LoginViewController.m */,
 				02D97CEB1C0AB2F4002A9838 /* XMPPManager.h */,
 				02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */,
+				028815E11C15C883001DAA31 /* FriendListViewController.h */,
+				028815E21C15C883001DAA31 /* FriendListViewController.m */,
+				028815DE1C15C2CA001DAA31 /* AddFriendViewController.h */,
+				028815DF1C15C2CA001DAA31 /* AddFriendViewController.m */,
 				02D97CEE1C0AB7CB002A9838 /* def.h */,
 				02610B131BFE01E1001F83CD /* Main.storyboard */,
 				02610B161BFE01E1001F83CD /* Assets.xcassets */,
@@ -298,10 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028815E31C15C883001DAA31 /* FriendListViewController.m in Sources */,
 				02D97CED1C0AB2F4002A9838 /* XMPPManager.m in Sources */,
 				02610B121BFE01E1001F83CD /* RegisterViewController.m in Sources */,
 				02610B0F1BFE01E1001F83CD /* AppDelegate.m in Sources */,
 				02610B0C1BFE01E1001F83CD /* main.m in Sources */,
+				028815E01C15C2CA001DAA31 /* AddFriendViewController.m in Sources */,
 				025EF64B1C0C92B9001BEB4E /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "XMPPManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    if (![[[XMPPManager shareInterface] xmppStream] isAuthenticated]) {
+        UIViewController *login = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        UINavigationController *rootNav = (UINavigationController *)self.window.rootViewController;
+        [rootNav pushViewController:login animated:NO];
+    }
     return YES;
 }
 

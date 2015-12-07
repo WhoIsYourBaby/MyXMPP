@@ -47,6 +47,61 @@
             </objects>
             <point key="canvasLocation" x="726" y="251"/>
         </scene>
+        <!--好友列表-->
+        <scene sceneID="ITl-SC-cOO">
+            <objects>
+                <viewController restorationIdentifier="FriendListViewController" storyboardIdentifier="FriendListViewController" id="SMR-IA-nwy" customClass="FriendListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cwD-LZ-4fe"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ZQ-sh-85s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pzn-vz-k8G">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="好友列表" id="rDJ-yw-h2P">
+                        <barButtonItem key="rightBarButtonItem" title="添加好友" id="QV9-dN-2TF">
+                            <connections>
+                                <segue destination="hek-pb-CtF" kind="push" id="Hg9-hs-F9u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnf-QJ-Nek" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-210" y="1010"/>
+        </scene>
+        <!--添加好友-->
+        <scene sceneID="4wD-a4-Avb">
+            <objects>
+                <viewController restorationIdentifier="AddFriendViewController" storyboardIdentifier="AddFriendViewController" id="hek-pb-CtF" customClass="AddFriendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yY5-ST-ELc"/>
+                        <viewControllerLayoutGuide type="bottom" id="P9Z-4F-6po"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kpM-d3-NC9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="好友ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kol-9E-rJ6">
+                                <rect key="frame" x="70" y="125" width="180" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjg-QA-N7O">
+                                <rect key="frame" x="103" y="183" width="115" height="30"/>
+                                <state key="normal" title="添加"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="添加好友" id="uXM-uo-dSn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zXf-WB-53I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="198" y="1010"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vUD-3Y-YBL">
             <objects>
@@ -56,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="pDR-vj-Jre" kind="relationship" relationship="rootViewController" id="bZb-Q5-Fib"/>
+                        <segue destination="SMR-IA-nwy" kind="relationship" relationship="rootViewController" id="L5f-1Q-wxX"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZM-zv-8ay" userLabel="First Responder" sceneMemberID="firstResponder"/>
