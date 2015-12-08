@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (IBAction)btnLoginTap:(id)sender {
@@ -28,6 +29,12 @@
 }
 
 - (void)dealloc {
+    [[XMPPManager shareInterface] removeStreamDelegate:self];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [[XMPPManager shareInterface] removeStreamDelegate:self];
 }
 
@@ -48,6 +55,8 @@
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
     NSLog(@"%s", __FUNCTION__);
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error {

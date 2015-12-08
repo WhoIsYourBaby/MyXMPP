@@ -70,6 +70,8 @@
 
 - (void)xmppStreamDidRegister:(XMPPStream *)sender {
     NSLog(@"%s", __FUNCTION__);
+    [sender disconnect];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)xmppStream:(XMPPStream *)sender didNotRegister:(NSXMLElement *)error {
