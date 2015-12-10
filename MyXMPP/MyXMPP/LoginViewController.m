@@ -55,6 +55,7 @@
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
     NSLog(@"%s", __FUNCTION__);
+    [sender sendElement:[XMPPPresence presence]];
     self.navigationController.navigationBarHidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <XMPPFramework.h>
+#import <XMPPRoster.h>
 #import "def.h"
 
 @interface XMPPManager : NSObject
@@ -16,10 +17,14 @@
 
 - (XMPPStream *)xmppStream;
 
+- (XMPPRoster *)xmppRoster;
+
 - (void)addStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
 
 - (void)removeStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
 
 - (void)connect;
+
+- (void)addFriendWithID:(NSString *)friendID;
 
 @end

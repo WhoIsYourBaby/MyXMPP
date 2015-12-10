@@ -7,12 +7,17 @@
 //
 
 #import "XMPPManager.h"
+#import <XMPPRosterCoreDataStorage.h>
 #import <DDTTYLogger.h>
 #import "def.h"
 
-@interface XMPPManager () <XMPPStreamDelegate>
+@interface XMPPManager () <XMPPStreamDelegate, XMPPRosterDelegate>
 
 @property (nonatomic, strong) XMPPStream *xmppStream;
+
+@property (nonatomic, strong) XMPPRoster *xmppRoster;
+
+@property (nonatomic, strong) XMPPRosterCoreDataStorage *xmppRosterStorage;
 
 @end
 
@@ -36,6 +41,12 @@
         [_xmppStream setHostName:kHostName];
         [_xmppStream setHostPort:5222];
         [_xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        
+        //初始化好友管理功能
+        _xmppRosterStorage = [[XMPPRosterCoreDataStorage alloc] init];
+        _xmppRoster = [[XMPPRoster alloc] initWithRosterStorage:_xmppRosterStorage];
+        [_xmppRoster activate:_xmppStream];
+        [_xmppRoster addDelegate:self delegateQueue:dispatch_get_main_queue()];
     }
     return self;
 }
@@ -58,6 +69,16 @@
     NSError *err = nil;
     BOOL result = [self.xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&err];
     NSAssert(result, [err description]);
+}
+
+
+- (void)addFriendWithID:(NSString *)friendID {
+    [_xmppRoster subscribePresenceToUser:[XMPPJID jidWithUser:friendID domain:kHostName resource:nil]];
+}
+
+- (void)xmppRoster:(XMPPRoster *)sender didReceivePresenceSubscriptionRequest:(XMPPPresence *)presence {
+    XMPPJID *jidFrom = [presence from];
+    [sender acceptPresenceSubscriptionRequestFrom:jidFrom andAddToRoster:YES];
 }
 
 

@@ -7,16 +7,24 @@
 //
 
 #import "AddFriendViewController.h"
+#import "XMPPManager.h"
+
+@interface AddFriendViewController ()
+
+@property (nonatomic, strong) IBOutlet UITextField *friendID;
+
+
+@end
 
 @implementation AddFriendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加好友" style:UIBarButtonItemStylePlain target:self action:@selector(btnAddFriendTap)];
 }
 
 
-- (void)btnAddFriendTap {
+- (IBAction)btnAddFriendTap {
+    [[XMPPManager shareInterface] addFriendWithID:self.friendID.text];
 }
 
 @end

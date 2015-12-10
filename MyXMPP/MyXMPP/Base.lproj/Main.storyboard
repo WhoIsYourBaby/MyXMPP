@@ -92,11 +92,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjg-QA-N7O">
                                 <rect key="frame" x="103" y="183" width="115" height="30"/>
                                 <state key="normal" title="添加"/>
+                                <connections>
+                                    <action selector="btnAddFriendTap" destination="hek-pb-CtF" eventType="touchUpInside" id="DoS-Xs-kjz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="添加好友" id="uXM-uo-dSn"/>
+                    <connections>
+                        <outlet property="friendID" destination="kol-9E-rJ6" id="aSF-1k-khY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXf-WB-53I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
