@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <XMPPFramework.h>
 #import <XMPPRoster.h>
+#import <XMPPRosterCoreDataStorage.h>
 #import "def.h"
 
 @interface XMPPManager : NSObject
@@ -18,6 +19,7 @@
 - (XMPPStream *)xmppStream;
 
 - (XMPPRoster *)xmppRoster;
+- (XMPPRosterCoreDataStorage *)xmppRosterStorage;
 
 - (void)addStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
 

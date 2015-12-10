@@ -82,4 +82,8 @@
 }
 
 
+- (XMPPRosterCoreDataStorage *)xmppRosterStorage {
+    return _xmppRosterStorage;
+}
+
 @end
