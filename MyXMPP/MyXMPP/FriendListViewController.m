@@ -21,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self fetchController];
+    
+    [[[XMPPManager shareInterface] xmppRoster] fetchRoster];
 }
 
 #pragma mark - NSFetchedResultsController & Delegate
@@ -62,10 +65,11 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:CellIdentifier];
+        cell.textLabel.textColor = [UIColor blackColor];
     }
     XMPPUserCoreDataStorageObject *friend = [self.fetchController objectAtIndexPath:indexPath];
     cell.textLabel.text = friend.jidStr;
-    cell.textLabel.text = friend.nickname;
+    cell.detailTextLabel.text = friend.nickname;
     return cell;
 }
 
