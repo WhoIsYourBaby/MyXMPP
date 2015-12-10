@@ -58,7 +58,23 @@
                     <view key="view" contentMode="scaleToFill" id="Pzn-vz-k8G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6QJ-ku-52n">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="SMR-IA-nwy" id="fS7-Gp-6a6"/>
+                                    <outlet property="delegate" destination="SMR-IA-nwy" id="NXQ-N5-3cg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6QJ-ku-52n" secondAttribute="trailing" id="DoU-ih-0gu"/>
+                            <constraint firstItem="4ZQ-sh-85s" firstAttribute="top" secondItem="6QJ-ku-52n" secondAttribute="bottom" id="Oob-KA-Yco"/>
+                            <constraint firstItem="6QJ-ku-52n" firstAttribute="leading" secondItem="Pzn-vz-k8G" secondAttribute="leading" id="boX-Di-X0z"/>
+                            <constraint firstItem="6QJ-ku-52n" firstAttribute="top" secondItem="cwD-LZ-4fe" secondAttribute="bottom" id="mdV-GF-wrb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="好友列表" id="rDJ-yw-h2P">
                         <barButtonItem key="rightBarButtonItem" title="添加好友" id="QV9-dN-2TF">
@@ -67,6 +83,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="friendTable" destination="6QJ-ku-52n" id="ZEX-CC-icm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnf-QJ-Nek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
