@@ -21,9 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchController];
     
-    [[[XMPPManager shareInterface] xmppRoster] fetchRoster];
+    NSError *err = nil;
+    [_fetchController performFetch:&err];
+    NSAssert(err == nil, [err description]);
 }
 
 #pragma mark - NSFetchedResultsController & Delegate
@@ -45,9 +46,6 @@
         //3、初始化NSFetchedResultsController并执行查询
         _fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:objContext sectionNameKeyPath:@"sectionNum" cacheName:nil];
         [_fetchController setDelegate:self];
-        NSError *err = nil;
-        [_fetchController performFetch:&err];
-        NSAssert(err == nil, [err description]);
     }
     return _fetchController;
 }
@@ -79,7 +77,17 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [[self.fetchController sections] count];
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    XMPPUserCoreDataStorageObject *user = [self.fetchController objectAtIndexPath:indexPath];
+    [[[XMPPManager shareInterface] xmppRoster] removeUser:[user jid]];
 }
 
 @end
