@@ -120,6 +120,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yh-xz-7Hi">
                                         <rect key="frame" x="255" y="7" width="57" height="30"/>
                                         <state key="normal" title="发送"/>
+                                        <connections>
+                                            <action selector="btnSendTap:" destination="c16-Ey-QYy" eventType="touchUpInside" id="ZTP-12-332"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,6 +143,10 @@
                             <constraint firstItem="NE2-nD-Es5" firstAttribute="top" secondItem="wbo-a1-PCK" secondAttribute="bottom" id="oST-ew-F3Y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chatText" destination="NE2-nD-Es5" id="OCB-BL-kSK"/>
+                        <outlet property="sendText" destination="HxV-W4-MLi" id="VBX-Mr-2Kj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Xo-0I-Rmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

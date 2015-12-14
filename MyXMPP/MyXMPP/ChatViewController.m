@@ -11,6 +11,8 @@
 @interface ChatViewController ()
 
 @property (nonatomic, strong) XMPPJID *friendJid;
+@property (nonatomic, weak) IBOutlet UITextField *sendText;
+@property (nonatomic, weak) IBOutlet UITextView *chatText;
 
 @end
 
@@ -22,6 +24,9 @@
 
 - (void)setChatFriendJid:(XMPPJID *)aJid {
     self.friendJid = aJid;
+}
+
+- (IBAction)btnSendTap:(id)sender {
 }
 
 @end
