@@ -56,12 +56,14 @@
 }
 
 
-- (void)addStreamDelegate:(id<XMPPStreamDelegate>)aDelegate {
+- (void)addStreamDelegate:(id<XMPPStreamDelegate, XMPPRosterDelegate>)aDelegate {
     [self.xmppStream addDelegate:aDelegate delegateQueue:dispatch_get_main_queue()];
+    [self.xmppRoster addDelegate:aDelegate delegateQueue:dispatch_get_main_queue()];
 }
 
-- (void)removeStreamDelegate:(id<XMPPStreamDelegate>)aDelegate {
+- (void)removeStreamDelegate:(id<XMPPStreamDelegate, XMPPRosterDelegate>)aDelegate {
     [self.xmppStream removeDelegate:aDelegate];
+    [self.xmppRoster removeDelegate:aDelegate];
 }
 
 - (void)connect {

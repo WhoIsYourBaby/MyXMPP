@@ -21,9 +21,9 @@
 - (XMPPRoster *)xmppRoster;
 - (XMPPRosterCoreDataStorage *)xmppRosterStorage;
 
-- (void)addStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
+- (void)addStreamDelegate:(id<XMPPStreamDelegate, XMPPRosterDelegate>)aDelegate;
 
-- (void)removeStreamDelegate:(id<XMPPStreamDelegate>)aDelegate;
+- (void)removeStreamDelegate:(id<XMPPStreamDelegate, XMPPRosterDelegate>)aDelegate;
 
 - (void)connect;
 

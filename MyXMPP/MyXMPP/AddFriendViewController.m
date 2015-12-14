@@ -9,7 +9,7 @@
 #import "AddFriendViewController.h"
 #import "XMPPManager.h"
 
-@interface AddFriendViewController ()
+@interface AddFriendViewController () <XMPPRosterDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *friendID;
 
@@ -24,7 +24,22 @@
 
 
 - (IBAction)btnAddFriendTap {
+    [[XMPPManager shareInterface] addStreamDelegate:self];
     [[XMPPManager shareInterface] addFriendWithID:self.friendID.text];
+}
+
+/**
+ * Sent when the roster receives a roster item.
+ *
+ * Example:
+ *
+ * <item jid='romeo@example.net' name='Romeo' subscription='both'>
+ *   <group>Friends</group>
+ * </item>
+ **/
+- (void)xmppRoster:(XMPPRoster *)sender didReceiveRosterItem:(NSXMLElement *)item {
+    [[XMPPManager shareInterface] removeStreamDelegate:self];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

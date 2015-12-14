@@ -9,6 +9,7 @@
 #import "FriendListViewController.h"
 #import <CoreData/CoreData.h>
 #import "XMPPManager.h"
+#import "ChatViewController.h"
 
 @interface FriendListViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -23,7 +24,7 @@
     [super viewDidLoad];
     
     NSError *err = nil;
-    [_fetchController performFetch:&err];
+    [self.fetchController performFetch:&err];
     NSAssert(err == nil, [err description]);
 }
 
@@ -88,6 +89,16 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     XMPPUserCoreDataStorageObject *user = [self.fetchController objectAtIndexPath:indexPath];
     [[[XMPPManager shareInterface] xmppRoster] removeUser:[user jid]];
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    XMPPUserCoreDataStorageObject *user = [self.fetchController objectAtIndexPath:indexPath];
+    XMPPJID *friJid = user.jid;
+    ChatViewController *chat = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ChatViewController"];
+    [chat setChatFriendJid:friJid];
+    [self.navigationController pushViewController:chat animated:YES];
 }
 
 @end
