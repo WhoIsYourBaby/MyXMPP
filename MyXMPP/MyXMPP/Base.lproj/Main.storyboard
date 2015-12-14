@@ -102,7 +102,43 @@
                     <view key="view" contentMode="scaleToFill" id="jWP-Ko-cHh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NE2-nD-Es5">
+                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Fx-do-Abl">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HxV-W4-MLi">
+                                        <rect key="frame" x="8" y="7" width="239" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yh-xz-7Hi">
+                                        <rect key="frame" x="255" y="7" width="57" height="30"/>
+                                        <state key="normal" title="发送"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="MiS-c7-bYe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Fx-do-Abl" secondAttribute="trailing" id="2zW-W9-y01"/>
+                            <constraint firstItem="kTX-UF-ZKD" firstAttribute="top" secondItem="2Fx-do-Abl" secondAttribute="bottom" id="6LV-ib-nzh"/>
+                            <constraint firstItem="2Fx-do-Abl" firstAttribute="leading" secondItem="jWP-Ko-cHh" secondAttribute="leading" id="6PS-uP-qTr"/>
+                            <constraint firstItem="2Fx-do-Abl" firstAttribute="top" secondItem="NE2-nD-Es5" secondAttribute="bottom" id="ASf-PQ-I8i"/>
+                            <constraint firstItem="2Fx-do-Abl" firstAttribute="top" secondItem="NE2-nD-Es5" secondAttribute="bottom" id="BG5-ZE-zpf"/>
+                            <constraint firstAttribute="trailing" secondItem="NE2-nD-Es5" secondAttribute="trailing" id="T69-J8-AQR"/>
+                            <constraint firstItem="NE2-nD-Es5" firstAttribute="leading" secondItem="jWP-Ko-cHh" secondAttribute="leading" id="Ya7-Ge-EVn"/>
+                            <constraint firstItem="NE2-nD-Es5" firstAttribute="top" secondItem="wbo-a1-PCK" secondAttribute="bottom" id="oST-ew-F3Y"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Xo-0I-Rmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
