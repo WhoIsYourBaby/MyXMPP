@@ -19,10 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self.window makeKeyAndVisible];
     if (![[[XMPPManager shareInterface] xmppStream] isAuthenticated]) {
         UIViewController *login = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        UINavigationController *rootNav = (UINavigationController *)self.window.rootViewController;
-        [rootNav pushViewController:login animated:NO];
+        UITabBarController *rootTarbarVC = (UITabBarController *)self.window.rootViewController;
+        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:login];
+        [rootTarbarVC presentViewController:loginNav animated:YES completion:nil];
     }
     return YES;
 }
