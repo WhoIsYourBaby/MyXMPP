@@ -170,11 +170,11 @@
             </objects>
             <point key="canvasLocation" x="676" y="1010"/>
         </scene>
-        <!--Item-->
+        <!--房间列表-->
         <scene sceneID="b6k-f7-awT">
             <objects>
                 <navigationController id="vCZ-k8-LJB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Pd6-ch-z1h"/>
+                    <tabBarItem key="tabBarItem" title="房间列表" id="Pd6-ch-z1h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3qj-px-02s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -242,11 +242,11 @@
             </objects>
             <point key="canvasLocation" x="198" y="1010"/>
         </scene>
-        <!--Item-->
+        <!--好友列表-->
         <scene sceneID="vUD-3Y-YBL">
             <objects>
                 <navigationController id="Uki-hk-Yt5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vsD-N2-kQp"/>
+                    <tabBarItem key="tabBarItem" title="好友列表" id="vsD-N2-kQp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tju-Ez-l1w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
