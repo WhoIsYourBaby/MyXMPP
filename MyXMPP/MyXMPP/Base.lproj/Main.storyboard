@@ -77,8 +77,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6QJ-ku-52n">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6QJ-ku-52n">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="SMR-IA-nwy" id="fS7-Gp-6a6"/>
@@ -112,7 +112,7 @@
         <!--Chat View Controller-->
         <scene sceneID="GQs-7g-Lbe">
             <objects>
-                <viewController restorationIdentifier="ChatViewController" storyboardIdentifier="ChatViewController" id="c16-Ey-QYy" customClass="ChatViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ChatViewController" storyboardIdentifier="ChatViewController" hidesBottomBarWhenPushed="YES" id="c16-Ey-QYy" customClass="ChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wbo-a1-PCK"/>
                         <viewControllerLayoutGuide type="bottom" id="kTX-UF-ZKD"/>
@@ -187,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="-210" y="1800"/>
         </scene>
-        <!--Room Chat View Controller-->
+        <!--Room List View Controller-->
         <scene sceneID="nlC-on-56l">
             <objects>
-                <viewController restorationIdentifier="RoomChatViewController" storyboardIdentifier="RoomChatViewController" id="BoH-MH-leQ" customClass="RoomChatViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RoomListViewController" storyboardIdentifier="RoomListViewController" id="BoH-MH-leQ" customClass="RoomListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UR8-Ta-cBp"/>
                         <viewControllerLayoutGuide type="bottom" id="x5b-x3-rb3"/>
@@ -200,7 +200,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JuX-vx-pw2"/>
+                    <navigationItem key="navigationItem" id="JuX-vx-pw2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WQW-Uv-YK4">
+                            <connections>
+                                <action selector="btnCreateRoomTap:" destination="BoH-MH-leQ" id="wgM-8K-Es9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULq-T3-J3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,7 +215,7 @@
         <!--添加好友-->
         <scene sceneID="4wD-a4-Avb">
             <objects>
-                <viewController restorationIdentifier="AddFriendViewController" storyboardIdentifier="AddFriendViewController" id="hek-pb-CtF" customClass="AddFriendViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddFriendViewController" storyboardIdentifier="AddFriendViewController" hidesBottomBarWhenPushed="YES" id="hek-pb-CtF" customClass="AddFriendViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yY5-ST-ELc"/>
                         <viewControllerLayoutGuide type="bottom" id="P9Z-4F-6po"/>

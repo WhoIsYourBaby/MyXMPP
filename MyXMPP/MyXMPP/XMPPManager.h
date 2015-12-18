@@ -10,6 +10,9 @@
 #import <XMPPFramework.h>
 #import <XMPPRoster.h>
 #import <XMPPRosterCoreDataStorage.h>
+#import <XMPPRoom.h>
+#import <XMPPMUC.h>
+#import <XMPPRoomCoreDataStorage.h>
 #import "def.h"
 
 @interface XMPPManager : NSObject
@@ -28,5 +31,10 @@
 - (void)connect;
 
 - (void)addFriendWithID:(NSString *)friendID;
+
+
+#pragma mark - 聊天室
+
+- (void)createRoom;
 
 @end

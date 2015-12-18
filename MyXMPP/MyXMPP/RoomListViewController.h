@@ -1,5 +1,5 @@
 //
-//  RoomChatViewController.h
+//  RoomListViewController.h
 //  MyXMPP
 //
 //  Created by halloworld on 15/12/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomChatViewController : UIViewController
+@interface RoomListViewController : UIViewController
 
 @end
