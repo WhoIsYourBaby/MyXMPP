@@ -8,6 +8,7 @@
 
 #import "RoomListViewController.h"
 #import "XMPPManager.h"
+#import "RoomChatViewController.h"
 
 @interface RoomListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -55,6 +56,13 @@
     return 1;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    XMPPRoom *room = [[XMPPManager shareInterface] roomsJoined][indexPath.row];
+    RoomChatViewController *chat = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomChatViewController"];
+    chat.room = room;
+    [self.navigationController pushViewController:chat animated:YES];
+}
 
 - (void)refresh_room_list {
     [self.roomListView reloadData];

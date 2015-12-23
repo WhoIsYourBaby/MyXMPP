@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMPPManager.h"
 
 @interface RoomChatViewController : UIViewController
+
+@property (nonatomic, strong) XMPPRoom *room;
+
 
 @end

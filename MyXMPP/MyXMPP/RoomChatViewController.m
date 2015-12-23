@@ -10,4 +10,16 @@
 
 @implementation RoomChatViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"邀请" style:UIBarButtonItemStyleDone target:self action:@selector(invateFriend)];
+}
+
+
+- (void)invateFriend {
+    NSLog(@"%s", __FUNCTION__);
+    XMPPJID *hq1234 = [XMPPJID jidWithUser:@"hq1234" domain:kHostName resource:nil];
+    [self.room inviteUser:hq1234 withMessage:@"大爷，来玩嘛！！！"];
+}
+
 @end
