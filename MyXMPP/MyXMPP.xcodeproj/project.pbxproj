@@ -15,6 +15,7 @@
 		02610B171BFE01E1001F83CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02610B161BFE01E1001F83CD /* Assets.xcassets */; };
 		02610B1A1BFE01E1001F83CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02610B181BFE01E1001F83CD /* LaunchScreen.storyboard */; };
 		02610B251BFE01E1001F83CD /* MyXMPPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02610B241BFE01E1001F83CD /* MyXMPPUITests.m */; };
+		0278FF581C2AE48F0063F3B9 /* RoomChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278FF571C2AE48F0063F3B9 /* RoomChatViewController.m */; };
 		028815E01C15C2CA001DAA31 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028815DF1C15C2CA001DAA31 /* AddFriendViewController.m */; };
 		028815E31C15C883001DAA31 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028815E21C15C883001DAA31 /* FriendListViewController.m */; };
 		0288E2B81C219E69004A9C8A /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0288E2B71C219E69004A9C8A /* RoomListViewController.m */; };
@@ -49,6 +50,8 @@
 		02610B201BFE01E1001F83CD /* MyXMPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyXMPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02610B241BFE01E1001F83CD /* MyXMPPUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyXMPPUITests.m; sourceTree = "<group>"; };
 		02610B261BFE01E1001F83CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0278FF561C2AE48F0063F3B9 /* RoomChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomChatViewController.h; sourceTree = "<group>"; };
+		0278FF571C2AE48F0063F3B9 /* RoomChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomChatViewController.m; sourceTree = "<group>"; };
 		028815DE1C15C2CA001DAA31 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
 		028815DF1C15C2CA001DAA31 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
 		028815E11C15C883001DAA31 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				02D8D1A31C1EF60D002C37FC /* ChatViewController.m */,
 				0288E2B61C219E69004A9C8A /* RoomListViewController.h */,
 				0288E2B71C219E69004A9C8A /* RoomListViewController.m */,
+				0278FF561C2AE48F0063F3B9 /* RoomChatViewController.h */,
+				0278FF571C2AE48F0063F3B9 /* RoomChatViewController.m */,
 				02D97CEE1C0AB7CB002A9838 /* def.h */,
 				02610B131BFE01E1001F83CD /* Main.storyboard */,
 				02610B161BFE01E1001F83CD /* Assets.xcassets */,
@@ -319,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				028815E31C15C883001DAA31 /* FriendListViewController.m in Sources */,
+				0278FF581C2AE48F0063F3B9 /* RoomChatViewController.m in Sources */,
 				02D97CED1C0AB2F4002A9838 /* XMPPManager.m in Sources */,
 				02610B121BFE01E1001F83CD /* RegisterViewController.m in Sources */,
 				02610B0F1BFE01E1001F83CD /* AppDelegate.m in Sources */,

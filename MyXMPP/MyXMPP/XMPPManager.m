@@ -67,6 +67,16 @@
 - (NSMutableArray *)roomsJoined {
     if (_roomsJoined == nil) {
         _roomsJoined = [[NSMutableArray alloc] init];
+        NSArray *roomJidArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"roomJidArray"];
+        for (NSString *roomJidString in roomJidArray) {
+            XMPPJID *jid = [XMPPJID jidWithString:roomJidString];
+            XMPPRoom *room = [[XMPPRoom alloc]
+                              initWithRoomStorage:[XMPPRoomCoreDataStorage sharedInstance] jid:jid];
+            [room addDelegate:self delegateQueue:dispatch_get_main_queue()];
+            [room activate:_xmppStream];
+            [room joinRoomUsingNickname:[jid resource] history:nil];
+            [_roomsJoined addObject:room];
+        }
     }
     return _roomsJoined;
 }
@@ -104,14 +114,13 @@
     return _xmppRosterStorage;
 }
 
-
 #pragma mark - 聊天室
 
 - (void)createRoom {
     srand(time(NULL));
     int roomID = rand() % 1000000;
     XMPPJID *roomJID = [XMPPJID jidWithUser:[NSString stringWithFormat:@"%d", roomID] domain:[@"conference." stringByAppendingString:kHostName] resource:nil];
-    XMPPRoomCoreDataStorage *roomStorage = [[XMPPRoomCoreDataStorage alloc] init];
+    XMPPRoomCoreDataStorage *roomStorage = [XMPPRoomCoreDataStorage sharedInstance];
     XMPPRoom *room = [[XMPPRoom alloc] initWithRoomStorage:roomStorage jid:roomJID];
     [room activate:_xmppStream];
     [room addDelegate:self delegateQueue:dispatch_get_main_queue()];
@@ -147,6 +156,18 @@
     [room configureRoomUsingOptions:x];
 }
 
+
+- (void)saveRoomsJoined {
+    NSMutableArray *roomJidArray = [NSMutableArray array];
+    for (XMPPRoom *aRoom in self.roomsJoined) {
+        XMPPJID *roomJID = [aRoom myRoomJID];
+        NSString *roomFull = [roomJID full];
+        [roomJidArray addObject:roomFull];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:roomJidArray forKey:@"roomJidArray"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh_room_list" object:nil];
+}
+
 #pragma mark - XMPPMUC Delegate
 
 - (void)xmppMUC:(XMPPMUC *)sender roomJID:(XMPPJID *)roomJID didReceiveInvitation:(XMPPMessage *)message {
@@ -160,7 +181,10 @@
 
 
 - (void)xmppMUC:(XMPPMUC *)sender didDiscoverServices:(NSArray *)services {
-    NSLog(@"%s", __FUNCTION__);
+    NSLog(@"%s -> %@", __FUNCTION__, services);
+    NSXMLElement *item = services[1];
+    NSString *serviceName = [[item attributeForName:@"jid"] stringValue];
+    [sender discoverRoomsForServiceNamed:serviceName];
 }
 
 - (void)xmppMUCFailedToDiscoverServices:(XMPPMUC *)sender withError:(NSError *)error {
@@ -169,7 +193,7 @@
 
 
 - (void)xmppMUC:(XMPPMUC *)sender didDiscoverRooms:(NSArray *)rooms forServiceNamed:(NSString *)serviceName {
-    NSLog(@"%s", __FUNCTION__);
+    NSLog(@"%s %@ ->\n%@", __FUNCTION__, serviceName, rooms);
 }
 
 #pragma mark - XMPPRoom Delegate
@@ -182,19 +206,51 @@
 
 - (void)xmppRoomDidJoin:(XMPPRoom *)sender {
     NSLog(@"%s", __FUNCTION__);
+    for (XMPPRoom *room in self.roomsJoined) {
+        if ([[[room roomJID] full] isEqualToString:[[sender roomJID] full]]) {
+            return ;
+        }
+    }
     [self.roomsJoined addObject:sender];
+    [self saveRoomsJoined];
 }
 
 
 - (void)xmppRoomDidLeave:(XMPPRoom *)sender {
     NSLog(@"%s", __FUNCTION__);
     [self.roomsJoined removeObject:sender];
+    [self saveRoomsJoined];
 }
 
 
 - (void)xmppRoomDidDestroy:(XMPPRoom *)sender {
     [self.roomsJoined removeObject:sender];
+    [self saveRoomsJoined];
     NSLog(@"%s", __FUNCTION__);
+}
+
+- (XMPPMUC *)roomMUC {
+    return _roomMUC;
+}
+
+- (void)fetchRoomsJoined {
+    /*
+     <iq from='hag66@shakespeare.lit/pda'
+     id='rooms1'
+     to='wiccarocks@shakespeare.lit/laptop'
+     type='get'>
+     <query xmlns='http://jabber.org/protocol/disco#items'
+     node='http://jabber.org/protocol/muc#rooms'/>
+     </iq>
+     */
+    NSXMLElement *query = [NSXMLElement elementWithName:@"query" xmlns:@"http://jabber.org/protocol/disco#items"];
+    [query addAttributeWithName:@"node" stringValue:@"http://jabber.org/protocol/muc#rooms"];
+    NSXMLElement *iq = [NSXMLElement elementWithName:@"iq"];
+    [iq addAttributeWithName:@"id" stringValue:@"rooms1"];
+    [iq addAttributeWithName:@"to" stringValue:[[_xmppStream myJID] full]];
+    [iq addAttributeWithName:@"type" stringValue:@"get"];
+    [iq addChild:query];
+    [_xmppStream sendElement:iq];
 }
 
 @end

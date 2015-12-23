@@ -37,4 +37,10 @@
 
 - (void)createRoom;
 
+- (NSMutableArray *)roomsJoined;
+- (XMPPMUC *)roomMUC;
+
+- (void)fetchRoomsJoined;
+
+
 @end
