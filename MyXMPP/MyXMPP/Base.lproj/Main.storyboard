@@ -190,7 +190,7 @@
         <!--Room List View Controller-->
         <scene sceneID="nlC-on-56l">
             <objects>
-                <viewController restorationIdentifier="RoomListViewController" storyboardIdentifier="RoomListViewController" hidesBottomBarWhenPushed="YES" id="BoH-MH-leQ" customClass="RoomListViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RoomListViewController" storyboardIdentifier="RoomListViewController" id="BoH-MH-leQ" customClass="RoomListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UR8-Ta-cBp"/>
                         <viewControllerLayoutGuide type="bottom" id="x5b-x3-rb3"/>
@@ -229,12 +229,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULq-T3-J3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198" y="1800"/>
+            <point key="canvasLocation" x="227" y="1800"/>
         </scene>
         <!--Room Chat View Controller-->
         <scene sceneID="c4K-bi-0ba">
             <objects>
-                <viewController restorationIdentifier="RoomChatViewController" storyboardIdentifier="RoomChatViewController" id="r0S-lt-wzO" customClass="RoomChatViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RoomChatViewController" storyboardIdentifier="RoomChatViewController" hidesBottomBarWhenPushed="YES" id="r0S-lt-wzO" customClass="RoomChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wXD-Bj-4Ud"/>
                         <viewControllerLayoutGuide type="bottom" id="RqX-j3-cBI"/>
@@ -262,6 +262,7 @@
                                         <state key="normal" title="发送"/>
                                         <connections>
                                             <action selector="btnSendTap:" destination="c16-Ey-QYy" eventType="touchUpInside" id="DvH-l5-QkA"/>
+                                            <action selector="btnSendTap:" destination="r0S-lt-wzO" eventType="touchUpInside" id="TnU-bl-sKi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -283,6 +284,10 @@
                             <constraint firstItem="w2u-eL-Oql" firstAttribute="top" secondItem="wXD-Bj-4Ud" secondAttribute="bottom" id="s2Z-MP-MMz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chatTextView" destination="w2u-eL-Oql" id="Yst-iP-2Oz"/>
+                        <outlet property="sendText" destination="qD7-JW-HCp" id="QFe-al-99M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NU-08-dcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

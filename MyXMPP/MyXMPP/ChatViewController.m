@@ -48,7 +48,7 @@
 
 - (void)showChatText:(NSString *)chatString from:(NSString *)aUser {
     NSString *chatContent = self.chatText.text;
-    chatContent = [chatContent stringByAppendingFormat:@"%@ : %@\n", [self.friendJid user], self.sendText.text];
+    chatContent = [chatContent stringByAppendingFormat:@"%@ : %@\n", aUser, chatString];
     self.chatText.text = chatContent;
 }
 
