@@ -190,7 +190,7 @@
         <!--Room List View Controller-->
         <scene sceneID="nlC-on-56l">
             <objects>
-                <viewController restorationIdentifier="RoomListViewController" storyboardIdentifier="RoomListViewController" id="BoH-MH-leQ" customClass="RoomListViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RoomListViewController" storyboardIdentifier="RoomListViewController" hidesBottomBarWhenPushed="YES" id="BoH-MH-leQ" customClass="RoomListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UR8-Ta-cBp"/>
                         <viewControllerLayoutGuide type="bottom" id="x5b-x3-rb3"/>

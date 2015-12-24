@@ -168,10 +168,19 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"refresh_room_list" object:nil];
 }
 
+
+- (void)joinedRoom:(XMPPJID *)roomJid {
+    XMPPRoom *room = [[XMPPRoom alloc] initWithRoomStorage:[XMPPRoomCoreDataStorage sharedInstance] jid:roomJid];
+    [room activate:_xmppStream];
+    [room addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [room joinRoomUsingNickname:[[_xmppStream myJID] user] history:nil];
+}
+
 #pragma mark - XMPPMUC Delegate
 
 - (void)xmppMUC:(XMPPMUC *)sender roomJID:(XMPPJID *)roomJID didReceiveInvitation:(XMPPMessage *)message {
-    NSLog(@"%s", __FUNCTION__);
+    //默认加入房间
+    [self joinedRoom:roomJID];
 }
 
 
@@ -233,24 +242,5 @@
     return _roomMUC;
 }
 
-- (void)fetchRoomsJoined {
-    /*
-     <iq from='hag66@shakespeare.lit/pda'
-     id='rooms1'
-     to='wiccarocks@shakespeare.lit/laptop'
-     type='get'>
-     <query xmlns='http://jabber.org/protocol/disco#items'
-     node='http://jabber.org/protocol/muc#rooms'/>
-     </iq>
-     */
-    NSXMLElement *query = [NSXMLElement elementWithName:@"query" xmlns:@"http://jabber.org/protocol/disco#items"];
-    [query addAttributeWithName:@"node" stringValue:@"http://jabber.org/protocol/muc#rooms"];
-    NSXMLElement *iq = [NSXMLElement elementWithName:@"iq"];
-    [iq addAttributeWithName:@"id" stringValue:@"rooms1"];
-    [iq addAttributeWithName:@"to" stringValue:[[_xmppStream myJID] full]];
-    [iq addAttributeWithName:@"type" stringValue:@"get"];
-    [iq addChild:query];
-    [_xmppStream sendElement:iq];
-}
 
 @end

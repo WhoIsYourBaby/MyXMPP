@@ -17,7 +17,6 @@
 
 
 - (void)invateFriend {
-    NSLog(@"%s", __FUNCTION__);
     XMPPJID *hq1234 = [XMPPJID jidWithUser:@"hq1234" domain:kHostName resource:nil];
     [self.room inviteUser:hq1234 withMessage:@"大爷，来玩嘛！！！"];
 }
