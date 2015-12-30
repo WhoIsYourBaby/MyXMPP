@@ -7,6 +7,7 @@
 //
 
 #import "RoomChatViewController.h"
+#import "RoomMembersViewController.h"
 
 @interface RoomChatViewController () <XMPPRoomDelegate>
 
@@ -20,7 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"邀请" style:UIBarButtonItemStyleDone target:self action:@selector(invateFriend)];
+    
+    UIBarButtonItem *itemInvate = [[UIBarButtonItem alloc] initWithTitle:@"邀请" style:UIBarButtonItemStyleDone target:self action:@selector(invateFriend)];
+    UIBarButtonItem *itemMembers = [[UIBarButtonItem alloc] initWithTitle:@"成员" style:UIBarButtonItemStyleDone target:self action:@selector(memberList)];
+    self.navigationItem.rightBarButtonItems = @[itemInvate, itemMembers];
     [self.room addDelegate:self delegateQueue:dispatch_get_main_queue()];
 }
 
@@ -28,6 +32,12 @@
 - (void)invateFriend {
     XMPPJID *hq1234 = [XMPPJID jidWithUser:@"hq1234" domain:kHostName resource:nil];
     [self.room inviteUser:hq1234 withMessage:@"大爷，来玩嘛！！！"];
+}
+
+- (void)memberList {
+    RoomMembersViewController *rm = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RoomMembersViewController"];
+    rm.room = self.room;
+    [self.navigationController pushViewController:rm animated:YES];
 }
 
 

@@ -293,6 +293,37 @@
             </objects>
             <point key="canvasLocation" x="595" y="1800"/>
         </scene>
+        <!--Room Members View Controller-->
+        <scene sceneID="u0H-KP-XAc">
+            <objects>
+                <viewController restorationIdentifier="RoomMembersViewController" storyboardIdentifier="RoomMembersViewController" id="MzO-Mv-ROh" customClass="RoomMembersViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7XY-gE-dRc"/>
+                        <viewControllerLayoutGuide type="bottom" id="GRX-6V-JB7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GQg-rz-Qda">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1L7-tm-GcQ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MzO-Mv-ROh" id="KZP-bc-3lS"/>
+                                    <outlet property="delegate" destination="MzO-Mv-ROh" id="Qa1-3e-xuY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="1L7-tm-GcQ" id="Rub-DQ-jfG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oTf-J6-Sd0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992" y="1800"/>
+        </scene>
         <!--添加好友-->
         <scene sceneID="4wD-a4-Avb">
             <objects>
