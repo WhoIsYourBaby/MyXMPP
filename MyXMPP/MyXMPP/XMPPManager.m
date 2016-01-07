@@ -210,6 +210,7 @@
 - (void)xmppRoomDidCreate:(XMPPRoom *)sender {
     NSLog(@"%s", __FUNCTION__);
     [self configRoom:sender];
+    [sender fetchConfigurationForm];
 }
 
 
@@ -242,5 +243,35 @@
     return _roomMUC;
 }
 
+- (void)xmppRoom:(XMPPRoom *)sender occupantDidJoin:(XMPPJID *)occupantJID withPresence:(XMPPPresence *)presence {
+    /*
+     <iq from='crone1@shakespeare.lit/desktop'
+     id='mod1'
+     to='darkcave@chat.shakespeare.lit'
+     type='set'>
+     <query xmlns='http://jabber.org/protocol/muc#admin'>
+     <item nick='thirdwitch'
+     affiliation='Member' role='Moderator'/>
+     </query>
+     </iq>
+     */
+    /*
+     表4: 开放房间基于岗位的默认角色
+     RoomType   None        Member      Admin       Owner
+     Open       Participant	Participant	Moderator	Moderator
+     http://wiki.jabbercn.org/XEP-0045
+     */
+    NSXMLElement *item = [NSXMLElement elementWithName:@"item"];
+    [item addAttributeWithName:@"nick" stringValue:[occupantJID resource]];
+    [item addAttributeWithName:@"affiliation" stringValue:@"member"];
+    NSXMLElement *query = [NSXMLElement elementWithName:@"query" xmlns:@"http://jabber.org/protocol/muc#admin"];
+    [query addChild:item];
+    NSXMLElement *iq = [NSXMLElement elementWithName:@"iq"];
+    [iq addAttributeWithName:@"id" stringValue:@"mod1"];
+    [iq addAttributeWithName:@"to" stringValue:[[sender roomJID] full]];
+    [iq addAttributeWithName:@"type" stringValue:@"set"];
+    [iq addChild:query];
+    [_xmppStream sendElement:iq];
+}
 
 @end
