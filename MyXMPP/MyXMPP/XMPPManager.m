@@ -56,6 +56,7 @@
         [_roomMUC addDelegate:self delegateQueue:dispatch_get_main_queue()];
         [_roomMUC activate:_xmppStream];
         
+        //vCard
     }
     return self;
 }

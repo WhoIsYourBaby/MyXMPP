@@ -13,6 +13,8 @@
 #import <XMPPRoom.h>
 #import <XMPPMUC.h>
 #import <XMPPRoomCoreDataStorage.h>
+#import <XMPPvCardTemp.h>
+#import <XMPPvCardTempModule.h>
 #import "def.h"
 
 @interface XMPPManager : NSObject
