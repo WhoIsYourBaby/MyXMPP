@@ -42,4 +42,6 @@
 - (NSMutableArray *)roomsJoined;
 - (XMPPMUC *)roomMUC;
 
+- (XMPPvCardTempModule *)vCardModule;
+
 @end

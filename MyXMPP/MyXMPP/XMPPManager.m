@@ -10,6 +10,7 @@
 
 #import <DDTTYLogger.h>
 #import "def.h"
+#import <XMPPvCardCoreDataStorage.h>
 
 @interface XMPPManager () <XMPPStreamDelegate, XMPPRosterDelegate, XMPPMUCDelegate, XMPPRoomDelegate>
 
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) XMPPMUC *roomMUC;
 
 @property (nonatomic, strong) NSMutableArray *roomsJoined;
+
+@property (nonatomic, strong) XMPPvCardTempModule *vCardModule;
 
 @end
 
@@ -57,6 +60,9 @@
         [_roomMUC activate:_xmppStream];
         
         //vCard
+        _vCardModule = [[XMPPvCardTempModule alloc] initWithvCardStorage:[XMPPvCardCoreDataStorage sharedInstance]];
+        [_vCardModule addDelegate:self delegateQueue:dispatch_get_main_queue()];
+        [_vCardModule activate:_xmppStream];
     }
     return self;
 }
@@ -273,6 +279,10 @@
     [iq addAttributeWithName:@"type" stringValue:@"set"];
     [iq addChild:query];
     [_xmppStream sendElement:iq];
+}
+
+- (XMPPvCardTempModule *)vCardModule {
+    return _vCardModule;
 }
 
 @end
