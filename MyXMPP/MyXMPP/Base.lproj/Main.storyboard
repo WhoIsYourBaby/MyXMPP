@@ -187,13 +187,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49u-iO-WU7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49u-iO-WU7">
                                 <rect key="frame" x="20" y="91" width="120" height="120"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="gSy-vR-2NE"/>
                                     <constraint firstAttribute="height" constant="120" id="uwV-WK-FLq"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnHeaderImageTap:" destination="0NU-L5-0DZ" eventType="touchUpInside" id="p9H-1g-BzO"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-cb-orI">
                                 <rect key="frame" x="169" y="91" width="126" height="30"/>
