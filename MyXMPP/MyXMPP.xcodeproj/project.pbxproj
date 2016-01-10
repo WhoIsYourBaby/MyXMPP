@@ -20,6 +20,7 @@
 		028815E01C15C2CA001DAA31 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028815DF1C15C2CA001DAA31 /* AddFriendViewController.m */; };
 		028815E31C15C883001DAA31 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028815E21C15C883001DAA31 /* FriendListViewController.m */; };
 		0288E2B81C219E69004A9C8A /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0288E2B71C219E69004A9C8A /* RoomListViewController.m */; };
+		028A70231C4235F300EAC019 /* VCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028A70221C4235F300EAC019 /* VCardViewController.m */; };
 		02D8D1A41C1EF60D002C37FC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D8D1A31C1EF60D002C37FC /* ChatViewController.m */; };
 		02D97CED1C0AB2F4002A9838 /* XMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D97CEC1C0AB2F4002A9838 /* XMPPManager.m */; };
 		BEA238193A13C92AE378BC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A693FB456217DAD727250BE /* libPods.a */; };
@@ -61,6 +62,8 @@
 		028815E21C15C883001DAA31 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		0288E2B61C219E69004A9C8A /* RoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewController.h; sourceTree = "<group>"; };
 		0288E2B71C219E69004A9C8A /* RoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListViewController.m; sourceTree = "<group>"; };
+		028A70211C4235F300EAC019 /* VCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCardViewController.h; sourceTree = "<group>"; };
+		028A70221C4235F300EAC019 /* VCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCardViewController.m; sourceTree = "<group>"; };
 		02D8D1A21C1EF60D002C37FC /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		02D8D1A31C1EF60D002C37FC /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		02D97CEB1C0AB2F4002A9838 /* XMPPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPManager.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				0278FF571C2AE48F0063F3B9 /* RoomChatViewController.m */,
 				028356CC1C340C7D00913474 /* RoomMembersViewController.h */,
 				028356CD1C340C7D00913474 /* RoomMembersViewController.m */,
+				028A70211C4235F300EAC019 /* VCardViewController.h */,
+				028A70221C4235F300EAC019 /* VCardViewController.m */,
 				02D97CEE1C0AB7CB002A9838 /* def.h */,
 				02610B131BFE01E1001F83CD /* Main.storyboard */,
 				02610B161BFE01E1001F83CD /* Assets.xcassets */,
@@ -335,6 +340,7 @@
 				02610B0F1BFE01E1001F83CD /* AppDelegate.m in Sources */,
 				02610B0C1BFE01E1001F83CD /* main.m in Sources */,
 				028815E01C15C2CA001DAA31 /* AddFriendViewController.m in Sources */,
+				028A70231C4235F300EAC019 /* VCardViewController.m in Sources */,
 				0288E2B81C219E69004A9C8A /* RoomListViewController.m in Sources */,
 				028356CE1C340C7D00913474 /* RoomMembersViewController.m in Sources */,
 				02D8D1A41C1EF60D002C37FC /* ChatViewController.m in Sources */,

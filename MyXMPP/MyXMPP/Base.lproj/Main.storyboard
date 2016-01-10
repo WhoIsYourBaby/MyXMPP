@@ -95,6 +95,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="好友列表" id="rDJ-yw-h2P">
+                        <barButtonItem key="leftBarButtonItem" title="个人信息" id="MtR-lV-Dil">
+                            <connections>
+                                <segue destination="0NU-L5-0DZ" kind="push" id="YDy-2p-kgb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="添加好友" id="QV9-dN-2TF">
                             <connections>
                                 <segue destination="hek-pb-CtF" kind="push" id="Hg9-hs-F9u"/>
@@ -169,6 +174,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Xo-0I-Rmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="676" y="1010"/>
+        </scene>
+        <!--Card View Controller-->
+        <scene sceneID="nug-Ex-ugX">
+            <objects>
+                <viewController restorationIdentifier="VCardViewController" storyboardIdentifier="VCardViewController" hidesBottomBarWhenPushed="YES" id="0NU-L5-0DZ" customClass="VCardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SKT-mQ-QZg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ffs-Yf-fNw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kdv-Kn-nPy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49u-iO-WU7">
+                                <rect key="frame" x="20" y="91" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="gSy-vR-2NE"/>
+                                    <constraint firstAttribute="height" constant="120" id="uwV-WK-FLq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWz-cb-orI">
+                                <rect key="frame" x="169" y="91" width="126" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Afc-7c-oc5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ve7-0O-qbk">
+                                <rect key="frame" x="169" y="137" width="126" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FUo-hf-7nO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vWz-cb-orI" secondAttribute="trailing" constant="25" id="6OY-rQ-V0o"/>
+                            <constraint firstItem="ve7-0O-qbk" firstAttribute="leading" secondItem="49u-iO-WU7" secondAttribute="trailing" constant="29" id="E39-9I-XzB"/>
+                            <constraint firstItem="ve7-0O-qbk" firstAttribute="top" secondItem="vWz-cb-orI" secondAttribute="bottom" constant="16" id="Mtb-dq-9K9"/>
+                            <constraint firstItem="49u-iO-WU7" firstAttribute="leading" secondItem="kdv-Kn-nPy" secondAttribute="leading" constant="20" id="O10-8N-IJ2"/>
+                            <constraint firstItem="49u-iO-WU7" firstAttribute="top" secondItem="SKT-mQ-QZg" secondAttribute="bottom" constant="27" id="PYR-AP-8aQ"/>
+                            <constraint firstAttribute="trailing" secondItem="ve7-0O-qbk" secondAttribute="trailing" constant="25" id="TVm-tN-lZa"/>
+                            <constraint firstItem="vWz-cb-orI" firstAttribute="top" secondItem="SKT-mQ-QZg" secondAttribute="bottom" constant="27" id="Te2-ge-Yjf"/>
+                            <constraint firstItem="vWz-cb-orI" firstAttribute="leading" secondItem="49u-iO-WU7" secondAttribute="trailing" constant="29" id="WEy-Th-qMH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wck-xt-ual"/>
+                    <connections>
+                        <outlet property="emailText" destination="ve7-0O-qbk" id="9Nm-xe-2yZ"/>
+                        <outlet property="headerButton" destination="49u-iO-WU7" id="k5i-ri-2ue"/>
+                        <outlet property="nicknameText" destination="vWz-cb-orI" id="sbz-eG-oFb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfU-LY-GtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="1010"/>
         </scene>
         <!--房间列表-->
         <scene sceneID="b6k-f7-awT">
