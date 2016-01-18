@@ -7,12 +7,15 @@
 //
 
 #import "ChatViewController.h"
+#import <RTLabel.h>
 
 @interface ChatViewController () <XMPPStreamDelegate>
 
 @property (nonatomic, strong) XMPPJID *friendJid;
 @property (nonatomic, weak) IBOutlet UITextField *sendText;
-@property (nonatomic, weak) IBOutlet UITextView *chatText;
+@property (nonatomic, weak) IBOutlet UIScrollView *chatScrollView;
+
+@property CGFloat maxHeight;
 
 @end
 
@@ -21,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[XMPPManager shareInterface] addStreamDelegate:self];
+    self.maxHeight = 0.f;
 }
 
 - (void)setChatFriendJid:(XMPPJID *)aJid {
@@ -47,9 +51,17 @@
 
 
 - (void)showChatText:(NSString *)chatString from:(NSString *)aUser {
-    NSString *chatContent = self.chatText.text;
-    chatContent = [chatContent stringByAppendingFormat:@"%@ : %@\n", aUser, chatString];
-    self.chatText.text = chatContent;
+    NSString *chatContent = [NSString stringWithFormat:@"%@ : %@\n", aUser, chatString];
+    CGFloat sWidth = [UIScreen mainScreen].bounds.size.width;
+    RTLabel *label = [[RTLabel alloc] initWithFrame:CGRectMake(0, self.maxHeight, sWidth, 1)];
+    label.text = chatContent;
+    CGSize opSize = label.optimumSize;
+    CGRect labelFrame = label.frame;
+    labelFrame.size.height = opSize.height;
+    label.frame = labelFrame;
+    [self.chatScrollView addSubview:label];
+    self.chatScrollView.contentSize = CGSizeMake(sWidth, self.maxHeight);
+    self.maxHeight += opSize.height;
 }
 
 #pragma mark - 收到消息
