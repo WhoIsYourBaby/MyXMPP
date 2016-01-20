@@ -9,7 +9,7 @@
 #import "ChatViewController.h"
 #import <RTLabel.h>
 
-@interface ChatViewController () <XMPPStreamDelegate>
+@interface ChatViewController () <XMPPStreamDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) XMPPJID *friendJid;
 @property (nonatomic, weak) IBOutlet UITextField *sendText;
@@ -49,6 +49,10 @@
     [[[XMPPManager shareInterface] xmppStream] sendElement:msg];
 }
 
+- (IBAction)btnOtherTap:(id)sender {
+    UIActionSheet *act = [[UIActionSheet alloc] initWithTitle:@"多媒体消息" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"图片", @"语音", @"地址", @"附件", nil];
+    [act showInView:self.view];
+}
 
 - (void)showChatText:(NSString *)chatString from:(NSString *)aUser {
     NSString *chatContent = [NSString stringWithFormat:@"%@ : %@\n", aUser, chatString];
@@ -70,6 +74,59 @@
     NSString *user = [[message from] user];
     NSString *chatContent = [message body];
     [self showChatText:chatContent from:user];
+}
+
+#pragma mark - Action Sheet
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            [self prepareSendPhoto];
+            break;
+        case 1:
+            [self prepareSendAudio];
+            break;
+        case 2:
+            [self prepareSendMap];
+            break;
+        case 3:
+            [self prepareSendFile];
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - 多媒体入口
+
+- (void)prepareSendPhoto {
+    UIImagePickerController *imngPicke = [[UIImagePickerController alloc] init];
+    [imngPicke setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self.navigationController presentViewController:imngPicke animated:YES completion:nil];
+    imngPicke.allowsEditing = YES;
+    imngPicke.delegate = self;
+}
+
+
+- (void)prepareSendAudio {
+}
+
+- (void)prepareSendMap {
+}
+
+- (void)prepareSendFile {
+}
+
+#pragma mark - UIImagePickerCOntroller Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *img = [info objectForKey:UIImagePickerControllerEditedImage];
+    //TODO
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
