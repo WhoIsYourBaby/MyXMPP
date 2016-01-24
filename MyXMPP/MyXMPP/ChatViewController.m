@@ -9,12 +9,14 @@
 #import "ChatViewController.h"
 #import <RTLabel.h>
 #import <NSData+XMPP.h>
+#import "POVoiceHUD.h"
 
-@interface ChatViewController () <XMPPStreamDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface ChatViewController () <XMPPStreamDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, POVoiceHUDDelegate>
 
 @property (nonatomic, strong) XMPPJID *friendJid;
 @property (nonatomic, weak) IBOutlet UITextField *sendText;
 @property (nonatomic, weak) IBOutlet UIScrollView *chatScrollView;
+@property (nonatomic, strong) POVoiceHUD *voiceHUD;
 
 @property CGFloat maxHeight;
 
@@ -30,6 +32,18 @@
 
 - (void)setChatFriendJid:(XMPPJID *)aJid {
     self.friendJid = aJid;
+}
+
+
+- (POVoiceHUD *)voiceHUD {
+    if (_voiceHUD == nil) {
+        _voiceHUD = [[POVoiceHUD alloc] initWithParentView:self.view];
+        _voiceHUD.title = @"Speak Now";
+        
+        [_voiceHUD setDelegate:self];
+        [self.view addSubview:_voiceHUD];
+    }
+    return _voiceHUD;
 }
 
 - (IBAction)btnSendTap:(id)sender {
@@ -139,6 +153,7 @@
 
 
 - (void)prepareSendAudio {
+    [self.voiceHUD startForFilePath:[NSString stringWithFormat:@"%@/Documents/sound.caf", NSHomeDirectory()]];
 }
 
 - (void)prepareSendMap {
@@ -173,6 +188,18 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Voice Delegater 
+
+
+- (void)POVoiceHUD:(POVoiceHUD *)voiceHUD voiceRecorded:(NSString *)recordPath length:(float)recordLength {
+    NSLog(@"%s", __FUNCTION__);
+}
+
+
+- (void)voiceRecordCancelledByUser:(POVoiceHUD *)voiceHUD {
+    NSLog(@"%s", __FUNCTION__);
 }
 
 @end
